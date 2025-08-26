@@ -8,7 +8,7 @@ export default function Navigation() {
 
   const handleWhatsAppClick = () => {
     const message = "Olá! Gostaria de falar com um especialista da Automai.";
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5512996771828?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

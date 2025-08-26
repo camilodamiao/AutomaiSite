@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 export default function WhatsAppFloat() {
   const handleWhatsAppClick = () => {
     const message = "Olá! Gostaria de conhecer as soluções da Automai e testar o agente conversacional.";
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5512996771828?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

@@ -4,7 +4,7 @@ import { MessageCircle, Mail, Clock, Check } from "lucide-react";
 export default function ContactSection() {
   const handleWhatsAppTest = () => {
     const message = "Olá! Quero testar o agente conversacional da Automai e ver como ele pode ajudar meu negócio!";
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5512996771828?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -59,7 +59,7 @@ export default function ContactSection() {
             </div>
 
             {/* Why Choose Us */}
-            <div className="bg-card border border-border rounded-xl p-6" data-testid="card-why-choose">
+            <div className="card-gradient border border-border rounded-xl p-6" data-testid="card-why-choose">
               <h4 className="text-xl font-semibold mb-4" data-testid="text-why-choose-title">Por que escolher a Automai?</h4>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">

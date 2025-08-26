@@ -4,12 +4,12 @@ import { Clock, DollarSign, TrendingUp, MessageCircle } from "lucide-react";
 export default function ResultsSection() {
   const handleWhatsAppResults = () => {
     const message = "Quero ver os resultados da Automai no meu negócio! Vamos conversar?";
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5512996771828?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   return (
-    <section id="results" className="py-20 bg-secondary/50" data-testid="results-section">
+    <section id="results" className="py-20 modern-gradient" data-testid="results-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-results-title">
@@ -41,7 +41,7 @@ export default function ResultsSection() {
 
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-card border border-border rounded-xl p-6" data-testid="card-more-time">
+          <div className="card-gradient border border-border rounded-xl p-6" data-testid="card-more-time">
             <div className="w-12 h-12 purple-gradient rounded-lg flex items-center justify-center mb-4">
               <Clock className="h-6 w-6 text-white" />
             </div>
@@ -51,7 +51,7 @@ export default function ResultsSection() {
             </p>
           </div>
 
-          <div className="bg-card border border-border rounded-xl p-6" data-testid="card-less-costs">
+          <div className="card-gradient border border-border rounded-xl p-6" data-testid="card-less-costs">
             <div className="w-12 h-12 purple-gradient rounded-lg flex items-center justify-center mb-4">
               <DollarSign className="h-6 w-6 text-white" />
             </div>
@@ -61,7 +61,7 @@ export default function ResultsSection() {
             </p>
           </div>
 
-          <div className="bg-card border border-border rounded-xl p-6" data-testid="card-more-conversions">
+          <div className="card-gradient border border-border rounded-xl p-6" data-testid="card-more-conversions">
             <div className="w-12 h-12 purple-gradient rounded-lg flex items-center justify-center mb-4">
               <TrendingUp className="h-6 w-6 text-white" />
             </div>

@@ -3,7 +3,7 @@ import { Linkedin, Instagram } from "lucide-react";
 
 export default function Footer() {
   const handleWhatsAppContact = () => {
-    const whatsappUrl = "https://wa.me/5511999999999";
+    const whatsappUrl = "https://wa.me/5512996771828";
     window.open(whatsappUrl, '_blank');
   };
 
@@ -22,7 +22,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-secondary/50 border-t border-border py-12" data-testid="footer">
+    <footer className="modern-gradient border-t border-border py-12" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
@@ -122,7 +122,7 @@ export default function Footer() {
               data-testid="footer-whatsapp-contact"
             >
               <span className="text-whatsapp">📱</span>
-              <span>WhatsApp: (11) 99999-9999</span>
+              <span>WhatsApp: (12) 99677-1828</span>
             </button>
           </div>
         </div>

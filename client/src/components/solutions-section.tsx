@@ -11,7 +11,7 @@ export default function SolutionsSection() {
     };
     
     const message = messages[solution as keyof typeof messages];
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5512996771828?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -29,7 +29,7 @@ export default function SolutionsSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* ChatMulti */}
-          <div className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-shadow" data-testid="card-chatmulti">
+          <div className="card-gradient border border-border rounded-xl p-8 hover:shadow-lg transition-shadow" data-testid="card-chatmulti">
             <div className="flex items-start space-x-4 mb-6">
               <div className="w-12 h-12 purple-gradient rounded-lg flex items-center justify-center flex-shrink-0">
                 <MessageCircle className="h-6 w-6 text-white" />
@@ -72,7 +72,7 @@ export default function SolutionsSection() {
           </div>
 
           {/* AI Agents */}
-          <div className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-shadow" data-testid="card-ai-agents">
+          <div className="card-gradient border border-border rounded-xl p-8 hover:shadow-lg transition-shadow" data-testid="card-ai-agents">
             <div className="flex items-start space-x-4 mb-6">
               <div className="w-12 h-12 purple-gradient rounded-lg flex items-center justify-center flex-shrink-0">
                 <Bot className="h-6 w-6 text-white" />
@@ -115,7 +115,7 @@ export default function SolutionsSection() {
           </div>
 
           {/* SiteFlash */}
-          <div className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-shadow" data-testid="card-siteflash">
+          <div className="card-gradient border border-border rounded-xl p-8 hover:shadow-lg transition-shadow" data-testid="card-siteflash">
             <div className="flex items-start space-x-4 mb-6">
               <div className="w-12 h-12 purple-gradient rounded-lg flex items-center justify-center flex-shrink-0">
                 <Zap className="h-6 w-6 text-white" />
@@ -158,7 +158,7 @@ export default function SolutionsSection() {
           </div>
 
           {/* Transformai */}
-          <div className="bg-card border border-border rounded-xl p-8 hover:shadow-lg transition-shadow" data-testid="card-transformai">
+          <div className="card-gradient border border-border rounded-xl p-8 hover:shadow-lg transition-shadow" data-testid="card-transformai">
             <div className="flex items-start space-x-4 mb-6">
               <div className="w-12 h-12 purple-gradient rounded-lg flex items-center justify-center flex-shrink-0">
                 <TrendingUp className="h-6 w-6 text-white" />

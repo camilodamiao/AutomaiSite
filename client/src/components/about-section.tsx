@@ -4,12 +4,12 @@ import { Target, Eye, Heart, MessageCircle } from "lucide-react";
 export default function AboutSection() {
   const handleWhatsAppStart = () => {
     const message = "Olá! Quero conhecer as soluções da Automai e como elas podem transformar meu negócio.";
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5512996771828?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   return (
-    <section id="about" className="py-20 bg-secondary/50" data-testid="about-section">
+    <section id="about" className="py-20 modern-gradient" data-testid="about-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-about-title">
