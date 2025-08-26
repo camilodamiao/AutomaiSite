@@ -1,10 +1,30 @@
 import express, { type Request, Response, NextFunction } from "express";
+import fs from "fs";
+import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Debug do ambiente
+console.log("=== ENVIRONMENT CHECK ===");
+console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("PORT:", process.env.PORT);
+console.log("Current directory:", process.cwd());
+console.log("Directory contents:", fs.readdirSync(process.cwd()));
+
+// Verifica se dist/public existe
+const buildPath = path.resolve(process.cwd(), "dist", "public");
+if (fs.existsSync(buildPath)) {
+  console.log("✅ Build found at:", buildPath);
+  const files = fs.readdirSync(buildPath);
+  console.log("Build contents (first 10):", files.slice(0, 10));
+} else {
+  console.log("❌ BUILD NOT FOUND at:", buildPath);
+  console.log("Available directories:", fs.readdirSync(process.cwd()));
+}
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -53,13 +73,12 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
+    console.log("=== PRODUCTION MODE ===");
+    console.log("Setting up static file serving...");
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
+  // Railway usa porta 8080 por padrão
   const port = parseInt(process.env.PORT || '8080', 10);
   server.listen({
     port,
@@ -67,5 +86,6 @@ app.use((req, res, next) => {
     reusePort: true,
   }, () => {
     log(`serving on port ${port}`);
+    console.log(`🚀 Server ready at http://0.0.0.0:${port}`);
   });
 })();
