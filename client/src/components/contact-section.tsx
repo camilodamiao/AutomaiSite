@@ -42,7 +42,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground">camilo@automai.com.br</p>
+                    <p className="text-muted-foreground">contato@automai.com.br</p>
                   </div>
                 </div>
 
