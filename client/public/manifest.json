@@ -1,0 +1,23 @@
+{
+  "short_name": "Automai",
+  "name": "Automai - Automação e IA para PMEs",
+  "description": "Reduza 70% do tempo em processos repetitivos com Automação e IA",
+  "icons": [
+    {
+      "src": "/fav-icon-automai.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/fav-icon-automai.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#7c3aed",
+  "background_color": "#1e1b4b",
+  "lang": "pt-BR",
+  "orientation": "portrait"
+}
