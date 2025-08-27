@@ -1,15 +1,9 @@
 import express, { type Express } from "express";
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import * as path from "path";
 import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
-// @ts-ignore
-import viteConfig from "../vite.config.js";
 import { nanoid } from "nanoid";
-
-// Substituir import.meta.dirname
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const viteLogger = createLogger();
 
@@ -25,23 +19,12 @@ export function log(message: string, source = "express") {
 }
 
 export async function setupVite(app: Express, server: Server) {
-  const serverOptions = {
-    middlewareMode: true,
-    hmr: { server },
-    allowedHosts: true as const,
-  };
-
   const vite = await createViteServer({
-    ...viteConfig,
-    configFile: false,
-    customLogger: {
-      ...viteLogger,
-      error: (msg, options) => {
-        viteLogger.error(msg, options);
-        process.exit(1);
-      },
+    configFile: path.resolve("vite.config.ts"),
+    server: {
+      middlewareMode: true,
+      hmr: { server },
     },
-    server: serverOptions,
     appType: "custom",
   });
 
@@ -50,14 +33,7 @@ export async function setupVite(app: Express, server: Server) {
     const url = req.originalUrl;
 
     try {
-      const clientTemplate = path.resolve(
-        __dirname,
-        "..",
-        "client",
-        "index.html",
-      );
-
-      // always reload the index.html file from disk incase it changes
+      const clientTemplate = path.resolve("client", "index.html");
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
       template = template.replace(
         `src="/src/main.tsx"`,
@@ -73,15 +49,13 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  // Usar __dirname ao invés de import.meta.dirname
-  let distPath = path.resolve(__dirname, "..", "dist", "public");
+  let distPath = path.resolve("dist/public");
 
   console.log("=== STATIC FILE SERVER ===");
   console.log("Looking for build at:", distPath);
   console.log("Build exists?", fs.existsSync(distPath));
   
   if (!fs.existsSync(distPath)) {
-    // Tenta caminho alternativo
     const alternativePath = path.resolve(process.cwd(), "dist", "public");
     console.log("Trying alternative path:", alternativePath);
     
@@ -100,7 +74,6 @@ export function serveStatic(app: Express) {
 
   console.log("Serving static files from:", distPath);
   
-  // Lista os arquivos encontrados para debug
   try {
     const files = fs.readdirSync(distPath);
     console.log("Files in build directory:", files.slice(0, 10));
@@ -110,7 +83,6 @@ export function serveStatic(app: Express) {
 
   app.use(express.static(distPath));
 
-  // fall through to index.html if the file doesn't exist
   app.use("*", (_req, res) => {
     const indexPath = path.resolve(distPath, "index.html");
     console.log("Serving index.html from:", indexPath);
