@@ -1,10 +1,15 @@
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
-import viteConfig from "../vite.config";
+// @ts-ignore
+import viteConfig from "../vite.config.js";
 import { nanoid } from "nanoid";
+
+// Substituir import.meta.dirname
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const viteLogger = createLogger();
 
@@ -46,7 +51,7 @@ export async function setupVite(app: Express, server: Server) {
 
     try {
       const clientTemplate = path.resolve(
-        import.meta.dirname,
+        __dirname,
         "..",
         "client",
         "index.html",
@@ -68,8 +73,8 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  // CORREÇÃO: apontar para dist/public ao invés de apenas public
-  let distPath = path.resolve(import.meta.dirname, "..", "dist", "public");
+  // Usar __dirname ao invés de import.meta.dirname
+  let distPath = path.resolve(__dirname, "..", "dist", "public");
 
   console.log("=== STATIC FILE SERVER ===");
   console.log("Looking for build at:", distPath);
